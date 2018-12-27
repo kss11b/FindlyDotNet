@@ -1,0 +1,14 @@
+/home/kyle/repos/webApiProject/bin/Debug/netcoreapp2.1/webApiProject.deps.json
+/home/kyle/repos/webApiProject/bin/Debug/netcoreapp2.1/webApiProject.runtimeconfig.json
+/home/kyle/repos/webApiProject/bin/Debug/netcoreapp2.1/webApiProject.runtimeconfig.dev.json
+/home/kyle/repos/webApiProject/bin/Debug/netcoreapp2.1/webApiProject.dll
+/home/kyle/repos/webApiProject/bin/Debug/netcoreapp2.1/webApiProject.pdb
+/home/kyle/repos/webApiProject/obj/Debug/netcoreapp2.1/webApiProject.csprojAssemblyReference.cache
+/home/kyle/repos/webApiProject/obj/Debug/netcoreapp2.1/webApiProject.csproj.CoreCompileInputs.cache
+/home/kyle/repos/webApiProject/obj/Debug/netcoreapp2.1/webApiProject.RazorAssemblyInfo.cache
+/home/kyle/repos/webApiProject/obj/Debug/netcoreapp2.1/webApiProject.RazorAssemblyInfo.cs
+/home/kyle/repos/webApiProject/obj/Debug/netcoreapp2.1/webApiProject.AssemblyInfoInputs.cache
+/home/kyle/repos/webApiProject/obj/Debug/netcoreapp2.1/webApiProject.AssemblyInfo.cs
+/home/kyle/repos/webApiProject/obj/Debug/netcoreapp2.1/webApiProject.RazorTargetAssemblyInfo.cache
+/home/kyle/repos/webApiProject/obj/Debug/netcoreapp2.1/webApiProject.dll
+/home/kyle/repos/webApiProject/obj/Debug/netcoreapp2.1/webApiProject.pdb
