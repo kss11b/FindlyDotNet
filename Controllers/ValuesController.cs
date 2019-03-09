@@ -1,45 +1,79 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace webApiProject.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private IHttpClientFactory _httpClientFactory;
+
+        public ValuesController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
+        private Articles ParseArticles(string json) {
+            Articles articles = JsonConvert.DeserializeObject<Articles>(json);
+            return articles;
+        }
         // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        [HttpGet("tech")]
+        // <IEnumerable<string>>
+        public async Task<ActionResult> GetTechArticles()
         {
-            return new string[] { "value1", "value2" };
+            var client =_httpClientFactory.CreateClient("NewsApiClient");
+            var techResult = await client.GetStringAsync("https://newsapi.org/v1/articles?source=hacker-news&apiKey=f76904152bf944798a8a79a3be817402");
+            
+            
+            return Ok(ParseArticles(techResult).Status);
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("sports")]
+        // <IEnumerable<string>>
+        public async Task<ActionResult> GetSportsArticles()
         {
-            return "value";
+            var client =_httpClientFactory.CreateClient("NewsApiClient");
+            var sportsResult  = await client.GetStringAsync("https://newsapi.org/v1/articles?source=espn&apiKey=f76904152bf944798a8a79a3be817402");
+            
+            return Ok(sportsResult);
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpGet("business")]
+        // <IEnumerable<string>>
+        public async Task<ActionResult> GetBusinessArticles()
         {
+            var client =_httpClientFactory.CreateClient("NewsApiClient");
+            var sportsResult  = await client.GetStringAsync("https://newsapi.org/v1/articles?source=business-insider&apiKey=f76904152bf944798a8a79a3be817402");
+            
+            return Ok(sportsResult);
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpGet("entertainment")]
+        // <IEnumerable<string>>
+        public async Task<ActionResult> GetEntertainmentArticles()
         {
+            var client =_httpClientFactory.CreateClient("NewsApiClient");
+            var entertainmentResult  = await client.GetStringAsync("https://newsapi.org/v1/articles?source=entertainment-weekly&apiKey=f76904152bf944798a8a79a3be817402");
+            
+            return Ok(entertainmentResult);
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpGet("science")]
+        // <IEnumerable<string>>
+        public async Task<ActionResult> GetScienceArticles()
         {
+            var client =_httpClientFactory.CreateClient("NewsApiClient");
+            var scienceResult  = await client.GetStringAsync("https://newsapi.org/v1/articles?source=national-geographic&apiKey=f76904152bf944798a8a79a3be817402");
+            
+            return Ok(scienceResult);
         }
+
     }
 }

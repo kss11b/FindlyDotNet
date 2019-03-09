@@ -26,6 +26,14 @@ namespace webApiProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddHttpClient("NewsApiClient", client =>
+            {
+                // client.BaseAddress = new Uri("https://newsapi.org/v1/articles?source=");
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                client.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactoryTesting");
+            });
+            
+            // services.AddHttpClient<INewsService, NewsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
